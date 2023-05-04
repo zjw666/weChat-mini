@@ -1,0 +1,77 @@
+<view class="container">
+  <view class="page-body">
+    <form catchsubmit="formSubmit" catchreset="formReset">
+      <view class="page-section page-section-gap">
+        <view class="page-section-title">出发城市</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd" style="margin: 30rpx 0" >
+              <input class="weui-input" name="startCity" placeholder="请输入" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section page-section-gap">
+        <view class="page-section-title">出发时间</view>
+        <picker mode="date" model:value="{{departTime}}" start="2023-01-01" end="2050-09-01" >
+          <view class="picker">
+            {{departTime || "请输入"}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="page-section-title">停留城市</view>
+      <view wx:for="{{citys}}">
+        <view class="page-section page-section-gap arrive-city-box">
+          <view class="page-section-title">到达城市{{index + 1}}</view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+              <view class="weui-cell__bd" style="margin: 30rpx 0" >
+                <input class="weui-input" placeholder="请输入" value="{{item.name}}"  data-id="{{index}}" bindinput="bindArrivedCityName"/>
+              </view>
+            </view>
+          </view>
+
+
+          <view class="page-section-title">到达时间</view>
+          <picker mode="date" value="{{item.date}}" start="2023-01-01" end="2050-09-01"  data-id="{{index}}"  bindchange="bindArrivedCityDate">
+            <view class="picker">
+              {{item.date || "请输入"}}
+            </view>
+          </picker>
+
+
+        </view>
+      </view>
+
+      <view class="btn-area">
+        <button bindtap="bindAddCity" >添加停留城市</button>
+      </view>
+      
+
+      <view class="page-section page-section-gap">
+        <view class="page-section-title">返回城市</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__bd" style="margin: 30rpx 0" >
+              <input class="weui-input" name="startCity" placeholder="请输入" />
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="page-section page-section-gap">
+        <view class="page-section-title">返回时间</view>
+        <picker mode="date" model:value="{{returnTime}}" start="2023-01-01" end="2050-09-01"  >
+          <view class="picker">
+            {{returnTime || "请输入"}}
+          </view>
+        </picker>
+      </view>
+
+        <button type="primary" formType="submit">Submit</button>
+    </form>
+  </view>
+
+</view>

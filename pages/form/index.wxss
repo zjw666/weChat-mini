@@ -1,0 +1,22 @@
+/* pages/form/index.wxss */
+.page-body {
+  width: 100%;
+}
+
+.container {
+  padding: 10px;
+}
+
+.page-section {
+  margin-bottom: 10px;
+}
+
+.arrive-city-box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.picker {
+  color: gray;
+}
